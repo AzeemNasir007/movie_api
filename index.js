@@ -17,7 +17,48 @@ app.use((err, req, res, next)=> {
 	res.status(500).send('Something broke!');
 });
 
-let topMovies = []
+let topMovies = [
+	{
+		title: 'Scarface',
+		author: 'Armitage Trail'
+	},
+	{
+		title: 'Top Gun: Maverick',
+		author: 'Peter Craig'
+	},
+	{
+		title: 'Rush Hour',
+		author: 'Ross LaManna, Jim Kouf'
+	},
+	{
+		title: 'Rush Hour 2',
+		author: 'Ross LaManna'
+	},
+	{
+		title: 'Rush Hour 3',
+		author: 'Ross LaManna'
+	},
+	{
+		title: 'Bad Boys',
+		author: 'George Gallo'
+	},
+	{
+		title: 'Bad Boys 2',
+		author: 'George Gallo'
+	},
+	{
+		title: 'Bad Boys for life',
+		author: 'George Gallo'
+	},
+	{
+		title: 'The Wolf of Wall Street',
+		author: 'Jordan Belfort'
+	},
+	{
+		title: 'The Lord of the Rings: The Fellowship of the Ring',
+		author: 'J. R. R. Tolkien'
+	}
+];
 
 // GET request 
 
