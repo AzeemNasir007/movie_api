@@ -2,9 +2,13 @@ const express = require('express'),
 	app = express(),
 	bodyParser = require('body-parser'),
 	uuid = require('uuid');
-	// morgan = require('morgan');
+	morgan = require('morgan');
+
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+
 
 // app.use((err, req, res, next)=> {
 // 	console.error(err.stack);
@@ -22,7 +26,7 @@ let users = [
 		name: "Kim",
 		favoriteMovies: ["Scarface"]
 	}
-]
+];
 
 let movies = [
 	{
@@ -94,7 +98,7 @@ let movies = [
 
 // CREATE 
 app.post('/users', (req, res) => {
-	const newUser = req.Body;
+	const newUser = req.body;
 
 	if(newUser.name) {
 		newUser.id = uuid.v4();
@@ -108,7 +112,7 @@ app.post('/users', (req, res) => {
 // UPDATE
 app.put('/users/:id', (req, res) => {
 	const { id } = req.params;
-	const updatedUser = req.Body;
+	const updatedUser = req.body;
 
 	let user = users.find(user => user.id == id);
 
@@ -170,7 +174,7 @@ app.get('/movies', (req, res) => {
 
 // READ
 app.get('/movies/:title', (req, res) => {
-	const { title } = req.params;
+	const {title} = req.params;
 	const movie = movies.find( movie => movie.Title === title );
 
 	if (movie) {
