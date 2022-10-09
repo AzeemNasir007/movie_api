@@ -52,59 +52,75 @@
           <td>-</td>
           <td>
             {
-              "name": "Mary",
-              "favoriteMovies": []
+              Username: "Kelly",
+		          Password: "2042",
+	          	Email: "Kelly@gmail.com",
+	          	Birthday: "04/02/1990",
+		          FavoriteMovies: ["The Untouchables"]
             }
           </td>
           <td>
             {
-              "name": "Mary",
-              "favoriteMovies": [],
-              "id": 123431523516423452451
+              Username: "Kelly",
+		          Password: "2042",
+	          	Email: "Kelly@gmail.com",
+	          	Birthday: "04/02/1990",
+		          FavoriteMovies: ["The Untouchables"]
             }
           </td>
         </tr>
         <tr>
           <td>Update user info</td>
-          <td>/users/:id</td>
+          <td>/users/:Username</td>
           <td>PUT</td>
           <td>-</td>
           <td>
             {
-              "name": "Kim updated Name",
-              "favoriteMovies": []
+              Username: "Kellytest",
+		          Password: "2042",
+	          	Email: "Kelly@gmail.com",
+	          	Birthday: "04/02/1990",
+		          FavoriteMovies: ["The Untouchables"]
             }
           </td>
           <td>
             {
-              "id": 2,
-              "name": "Kim",
-              "favoriteMovies": []
+              Username: "Kellytest",
+		          Password: "124123412",
+	          	Email: "Kelly@gmail.com",
+	          	Birthday: "04/02/1990",
+		          FavoriteMovies: ["The Untouchables"]
             }
           </td>
         </tr>
         <tr>
           <td>Allow to add movie to favorites</td>
-          <td>/users/:id/:movieTitle</td>
+          <td>/users/:Username/movies/:MovieID</td>
           <td>POST</td>
           <td>-</td>
           <td>
             {
-              "name": "Tony",
-              "favoriteMovies": []
+              Username: "Kelly",
+		          Password: "124123412",
+	          	Email: "Kelly@gmail.com",
+	          	Birthday: "04/02/1990",
+		          FavoriteMovies: []
             }
           </td>
           <td>
             {
-              "id": 1
-              "name": "Tony",
-              "favoriteMovies": [Scarface]
+              _id: "6331b7c6b9721858f9eec1f9"
+              Username: "Kellytest",
+		          Password: "124123412",
+	          	Email: "Kelly@gmail.com",
+	          	Birthday: "04/02/1990",
+		          FavoriteMovies: []
             }
           </td>
         </tr>
         <tr>
           <td>Removing movie from user</td>
-          <td>/user/:id/:movieTitle</td>
+          <td>/users/:Username/movies/:MovieID</td>
           <td>DELETE</td>
           <td>-</td>
           <td>-</td>
@@ -116,7 +132,7 @@
         </tr>
         <tr>
           <td>Removing User</td>
-          <td>/user/:id</td>
+          <td>/users/:Username</td>
           <td>DELETE</td>
           <td>-</td>
           <td>-</td>
@@ -125,6 +141,14 @@
               "user 2 has been deleted"
             }
           </td>
+        </tr>
+        <tr>
+          <td>Showing all users</td>
+          <td>/users</td>
+          <td>GET</td>
+          <td>-</td>
+          <td>-</td>
+          <td>shows all users</td>
         </tr>
         <tr>
           <td>showing all movies</td>
@@ -136,7 +160,7 @@
         </tr>
         <tr>
           <td>retrieving specific movie info</td>
-          <td>/movies/:title</td>
+          <td>/movies/:Title</td>
           <td>GET</td>
           <td>-</td>
           <td>-</td>
