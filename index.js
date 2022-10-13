@@ -28,7 +28,6 @@ mongoose.connect(process.env.CONNECTION_URI, {
 
 // mongoose.connect('mongodb://localhost:27017/test', { useNewUrlParser: true, useUnifiedTopology: true });
 
-
 // let users = [
 // 	{
 // 		Username: "Kim",
