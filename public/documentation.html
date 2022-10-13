@@ -1,217 +1,219 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Movie API Documentation</title>
-    <style>
-      table, th, td {border: 1px solid black;}
-      table {border-collapse: collapse;}
-    </style>
-  </head>
-  <script src="index.js"></script>
-  <body>
-    <header>
-      <h1>Movie API</h1>
-    </header>
 
-    <main>
-      <h2>Objective</h2>
-      <p>To build the server-side component of a “movies” web application. The web
-        application will provide users with access to information about different
-        movies, directors, and genres. Users will be able to sign up, update their
-        personal information, and create a list of their favorite movies. </p>
-      
-      <h2>Features</h2>
-      <ul>
-        <li>Return a list of ALL movies to the user</li>
-        <li>Return data (description, genre, director, image URL, whether it’s featured or not) about a
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Movie API Documentation</title>
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+  </style>
+</head>
+<!-- <script src="index.js"></script> -->
+
+<body>
+  <header>
+    <h1>Movie API</h1>
+  </header>
+
+  <main>
+    <h2>Objective</h2>
+    <p>To build the server-side component of a “movies” web application. The web
+      application will provide users with access to information about different
+      movies, directors, and genres. Users will be able to sign up, update their
+      personal information, and create a list of their favorite movies. </p>
+
+    <h2>Features</h2>
+    <ul>
+      <li>Return a list of ALL movies to the user</li>
+      <li>Return data (description, genre, director, image URL, whether it's featured or not) about a
         single movie by title to the user</li>
-        <li>Return data about a genre (description) by name/title (e.g., “Thriller”)</li>
-        <li>Return data about a director (bio, birth year, death year) by name</li>
-        <li>Allow new users to register</li>
-        <li>Allow users to update their user info (username, password, email, date of birth)</li>
-        <li>Allow users to add a movie to their list of favorites</li>
-        <li>Allow users to remove a movie from their list of favorites</li>
-        <li>Allow existing users to deregister</li>
-      </ul>
-      <h2>API Endpoints</h2>
-      <table>
-        <tr>
-          <th>Business Logic</th>
-          <th>Endpoint URL</th>
-          <th>HTTP Method</th>
-          <th>Query Parameter</th>
-          <th>Request body data format</th>
-          <th>Response body data format</th>
-        </tr>
-        <tr>
-          <td>Create User</td>
-          <td>/users</td>
-          <td>POST</td>
-          <td>-</td>
-          <td>
-            {
-              Username: "Kelly",
-		          Password: "2042",
-	          	Email: "Kelly@gmail.com",
-	          	Birthday: "04/02/1990",
-		          FavoriteMovies: ["The Untouchables"]
-            }
-          </td>
-          <td>
-            {
-              Username: "Kelly",
-		          Password: "2042",
-	          	Email: "Kelly@gmail.com",
-	          	Birthday: "04/02/1990",
-		          FavoriteMovies: ["The Untouchables"]
-            }
-          </td>
-        </tr>
-        <tr>
-          <td>Update user info</td>
-          <td>/users/:Username</td>
-          <td>PUT</td>
-          <td>-</td>
-          <td>
-            {
-              Username: "Kellytest",
-		          Password: "2042",
-	          	Email: "Kelly@gmail.com",
-	          	Birthday: "04/02/1990",
-		          FavoriteMovies: ["The Untouchables"]
-            }
-          </td>
-          <td>
-            {
-              Username: "Kellytest",
-		          Password: "124123412",
-	          	Email: "Kelly@gmail.com",
-	          	Birthday: "04/02/1990",
-		          FavoriteMovies: ["The Untouchables"]
-            }
-          </td>
-        </tr>
-        <tr>
-          <td>Allow to add movie to favorites</td>
-          <td>/users/:Username/movies/:MovieID</td>
-          <td>POST</td>
-          <td>-</td>
-          <td>
-            {
-              Username: "Kelly",
-		          Password: "124123412",
-	          	Email: "Kelly@gmail.com",
-	          	Birthday: "04/02/1990",
-		          FavoriteMovies: []
-            }
-          </td>
-          <td>
-            {
-              _id: "6331b7c6b9721858f9eec1f9"
-              Username: "Kellytest",
-		          Password: "124123412",
-	          	Email: "Kelly@gmail.com",
-	          	Birthday: "04/02/1990",
-		          FavoriteMovies: []
-            }
-          </td>
-        </tr>
-        <tr>
-          <td>Removing movie from user</td>
-          <td>/users/:Username/movies/:MovieID</td>
-          <td>DELETE</td>
-          <td>-</td>
-          <td>-</td>
-          <td>
-            {
-              "Scarface has been removed from user 1's array"
-            }
-          </td>
-        </tr>
-        <tr>
-          <td>Removing User</td>
-          <td>/users/:Username</td>
-          <td>DELETE</td>
-          <td>-</td>
-          <td>-</td>
-          <td>
-            {
-              "user 2 has been deleted"
-            }
-          </td>
-        </tr>
-        <tr>
-          <td>Showing all users</td>
-          <td>/users</td>
-          <td>GET</td>
-          <td>-</td>
-          <td>-</td>
-          <td>shows all users</td>
-        </tr>
-        <tr>
-          <td>showing all movies</td>
-          <td>/movies</td>
-          <td>GET</td>
-          <td>-</td>
-          <td>-</td>
-          <td>Shows all movies</td>
-        </tr>
-        <tr>
-          <td>retrieving specific movie info</td>
-          <td>/movies/:Title</td>
-          <td>GET</td>
-          <td>-</td>
-          <td>-</td>
-          <td>Pulls information for Scarface</td>
-        </tr>
-        <tr>
-          <td>finding movie by genre</td>
-          <td>/movies/genre/:genreName</td>
-          <td>GET</td>
-          <td>-</td>
-          <td>-</td>
-          <td>
-            {
-              "Genre": {
-			        "Name": "Thriller",
-			        "Description": "Thrillers are characterized and defined by the moods they elicit, giving viewers heightened feelings of suspense, excitement, surprise, anticipation and anxiety."
-              }
-            }
-          </td>
-        </tr>
-        <tr>
-          <td>searching by director</td>
-          <td>/movies/director/:directorName</td>
-          <td>GET</td>
-          <td>-</td>
-          <td>-</td>
-          <td>
-            {
-              "Name": "Michael Bay",
-			        "Bio": "Michael Benjamin Bay (born February 17, 1965)[1] is an American film director and producer. He is best known for making big-budget, high-concept action films characterized by fast cutting, stylistic cinematography and visuals, and extensive use of special effects, including frequent depictions of explosions.",
-              "Birth": 1965
-            }
-          </td>
-        </tr>
+      <li>Return data about a genre (description) by name/title (e.g., “Thriller”)</li>
+      <li>Return data about a director (bio, birth year, death year) by name</li>
+      <li>Allow new users to register</li>
+      <li>Allow users to update their user info (username, password, email, date of birth)</li>
+      <li>Allow users to add a movie to their list of favorites</li>
+      <li>Allow users to remove a movie from their list of favorites</li>
+      <li>Allow existing users to deregister</li>
+    </ul>
+    <h2>API Endpoints</h2>
+    <table>
+      <tr>
+        <th>Business Logic</th>
+        <th>Endpoint URL</th>
+        <th>HTTP Method</th>
+        <th>Query Parameter</th>
+        <th>Request body data format</th>
+        <th>Response body data format</th>
+      </tr>
+      <tr>
+        <td>Create User</td>
+        <td>/users</td>
+        <td>POST</td>
+        <td>-</td>
+        <td>
+          {
+          Username: "Kelly",
+          Password: "2042",
+          Email: "Kelly@gmail.com",
+          Birthday: "04/02/1990",
+          FavoriteMovies: ["The Untouchables"]
+          }
+        </td>
+        <td>
+          {
+          Username: "Kelly",
+          Password: "2042",
+          Email: "Kelly@gmail.com",
+          Birthday: "04/02/1990",
+          FavoriteMovies: ["The Untouchables"]
+          }
+        </td>
+      </tr>
+      <tr>
+        <td>Update user info</td>
+        <td>/users/:Username</td>
+        <td>PUT</td>
+        <td>-</td>
+        <td>
+          {
+          Username: "Kellytest",
+          Password: "2042",
+          Email: "Kelly@gmail.com",
+          Birthday: "04/02/1990",
+          FavoriteMovies: ["The Untouchables"]
+          }
+        </td>
+        <td>
+          {
+          Username: "Kellytest",
+          Password: "124123412",
+          Email: "Kelly@gmail.com",
+          Birthday: "04/02/1990",
+          FavoriteMovies: ["The Untouchables"]
+          }
+        </td>
+      </tr>
+      <tr>
+        <td>Allow to add movie to favorites</td>
+        <td>/users/:Username/movies/:MovieID</td>
+        <td>POST</td>
+        <td>-</td>
+        <td>
+          {
+          Username: "Kelly",
+          Password: "124123412",
+          Email: "Kelly@gmail.com",
+          Birthday: "04/02/1990",
+          FavoriteMovies: []
+          }
+        </td>
+        <td>
+          {
+          _id: "6331b7c6b9721858f9eec1f9"
+          Username: "Kellytest",
+          Password: "124123412",
+          Email: "Kelly@gmail.com",
+          Birthday: "04/02/1990",
+          FavoriteMovies: []
+          }
+        </td>
+      </tr>
+      <tr>
+        <td>Removing movie from user</td>
+        <td>/users/:Username/movies/:MovieID</td>
+        <td>DELETE</td>
+        <td>-</td>
+        <td>-</td>
+        <td>
+          {
+          "Scarface has been removed from user 1's array"
+          }
+        </td>
+      </tr>
+      <tr>
+        <td>Removing User</td>
+        <td>/users/:Username</td>
+        <td>DELETE</td>
+        <td>-</td>
+        <td>-</td>
+        <td>
+          {
+          "user 2 has been deleted"
+          }
+        </td>
+      </tr>
+      <tr>
+        <td>Showing all users</td>
+        <td>/users</td>
+        <td>GET</td>
+        <td>-</td>
+        <td>-</td>
+        <td>shows all users</td>
+      </tr>
+      <tr>
+        <td>showing all movies</td>
+        <td>/movies</td>
+        <td>GET</td>
+        <td>-</td>
+        <td>-</td>
+        <td>Shows all movies</td>
+      </tr>
+      <tr>
+        <td>retrieving specific movie info</td>
+        <td>/movies/:Title</td>
+        <td>GET</td>
+        <td>-</td>
+        <td>-</td>
+        <td>Pulls information for Scarface</td>
+      </tr>
+      <tr>
+        <td>finding movie by genre</td>
+        <td>/movies/genre/:genreName</td>
+        <td>GET</td>
+        <td>-</td>
+        <td>-</td>
+        <td>
+          {
+          "Genre": {
+          "Name": "Thriller",
+          "Description": "Thrillers are characterized and defined by the moods they elicit, giving viewers heightened
+          feelings of suspense, excitement, surprise, anticipation and anxiety."
+          }
+          }
+        </td>
+      </tr>
+      <tr>
+        <td>searching by director</td>
+        <td>/movies/director/:directorName</td>
+        <td>GET</td>
+        <td>-</td>
+        <td>-</td>
+        <td>
+          {
+          "Name": "Michael Bay",
+          "Bio": "Michael Benjamin Bay (born February 17, 1965)[1] is an American film director and producer. He is best
+          known for making big-budget, high-concept action films characterized by fast cutting, stylistic cinematography
+          and visuals, and extensive use of special effects, including frequent depictions of explosions.",
+          "Birth": 1965
+          }
+        </td>
+      </tr>
 
 
 
 
 
 
-      </table>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    </main>
+    </table>
 
 
 
@@ -220,5 +222,14 @@
 
 
 
-  </body>
 
+  </main>
+
+
+
+
+
+
+
+
+</body>
