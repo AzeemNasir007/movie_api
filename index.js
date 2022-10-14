@@ -6,7 +6,7 @@ const uuid = require('uuid');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const Models = require('./models.js');
-
+app.use(cors());
 
 const Movies = Models.Movie;
 const Users = Models.User;
