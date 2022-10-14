@@ -16,7 +16,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 let auth = require('./auth')(app);
-let allowedOrigins = ['http://localhost:1234']
 const passport = require('passport');
 require('./passport');
 
