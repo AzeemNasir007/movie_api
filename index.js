@@ -228,6 +228,82 @@ app.get('/', (req, res) => {
 	res.send('Welcome to MyFlix!');
 });
 
+// GET all users
+app.get('/users', passport.authenticate('jwt', { session: false }), (req, res) => {
+	Users.find()
+		.then((users) => {
+			res.status(201).json(users);
+		})
+		.catch((err) => {
+			console.error(err);
+			res.status(500).send('Error: ' + err);
+		});
+});
+
+// GET user by name
+app.get('/users/:Username', passport.authenticate('jwt', { session: false }), (req, res) => {
+	Users.findOne({ Username: req.params.Username })
+		.then((user) => {
+			res.json(user);
+		})
+		.catch((err) => {
+			console.error(err)
+			res.status(500).send('Error: ' + err);
+		});
+});
+
+// GET all movies
+
+//temporarily removed authentication for front end
+app.get('/movies', (req, res) => {
+	Movies.find()
+		.then((movies) => {
+			res.status(200).json(movies);
+		})
+		.catch((err) => {
+			console.error(err);
+			res.status(500).send('Error: ' + err);
+		});
+});
+
+// GET movie by title
+app.get('/movies/:Title', passport.authenticate('jwt', { session: false }), (req, res) => {
+	Movies.findOne({ Title: req.params.Title })
+		.then((movie) => {
+			res.json(movie);
+		})
+		.catch((err) => {
+			console.log(err);
+			res.status(500).send('Error ' + err);
+		});
+});
+
+
+// GET movie by genre name
+app.get('/movies/genre/:genreName', passport.authenticate('jwt', { session: false }), (req, res) => {
+	Movies.findOne({ 'Genre.Name': req.params.genreName })
+		.then((movie) => {
+			res.json(movie.Genre);
+		})
+		.catch((err) => {
+			console.log(err);
+			res.status(500).send('Error: ' + err);
+		});
+});
+
+// GET movie by director name
+app.get('/movies/director/:directorName', passport.authenticate('jwt', { session: false }), (req, res) => {
+	Movies.findOne({ 'Director.Name': req.params.directorName })
+		.then((movie) => {
+			res.json(movie.Director);
+		})
+		.catch((err) => {
+			console.log(err);
+			res.status(500).send('Error: ' + 'No such director');
+		});
+});
+
+
 // CREATE 
 // Add a user
 app.post('/users',
@@ -307,31 +383,6 @@ app.put('/users/:Username',
 		);
 	});
 
-// GET all users
-app.get('/users', passport.authenticate('jwt', { session: false }), (req, res) => {
-	Users.find()
-		.then((users) => {
-			res.status(201).json(users);
-		})
-		.catch((err) => {
-			console.error(err);
-			res.status(500).send('Error: ' + err);
-		});
-});
-
-// GET user by name
-app.get('/users/:Username', passport.authenticate('jwt', { session: false }), (req, res) => {
-	Users.findOne({ Username: req.params.Username })
-		.then((user) => {
-			res.json(user);
-		})
-		.catch((err) => {
-			console.error(err)
-			res.status(500).send('Error: ' + err);
-		});
-});
-
-
 //ADD favorite movie
 app.post('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { session: false }), (req, res) => {
 	Users.findOneAndUpdate(
@@ -384,59 +435,6 @@ app.delete('/users/:Username', passport.authenticate('jwt', { session: false }),
 		.catch((err) => {
 			console.error(err);
 			res.status(500).send('Error: ' + err);
-		});
-});
-
-
-
-// GET all movies
-
-//temporarily removed authentication for front end
-app.get('/movies', (req, res) => {
-	Movies.find()
-		.then((movies) => {
-			res.status(200).json(movies);
-		})
-		.catch((err) => {
-			console.error(err);
-			res.status(500).send('Error: ' + err);
-		});
-});
-
-// GET movie by title
-app.get('/movies/:Title', passport.authenticate('jwt', { session: false }), (req, res) => {
-	Movies.findOne({ Title: req.params.Title })
-		.then((movie) => {
-			res.json(movie);
-		})
-		.catch((err) => {
-			console.log(err);
-			res.status(500).send('Error ' + err);
-		});
-});
-
-
-// GET movie by genre name
-app.get('/movies/genre/:genreName', passport.authenticate('jwt', { session: false }), (req, res) => {
-	Movies.findOne({ 'Genre.Name': req.params.genreName })
-		.then((movie) => {
-			res.json(movie.Genre);
-		})
-		.catch((err) => {
-			console.log(err);
-			res.status(500).send('Error: ' + err);
-		});
-});
-
-// GET movie by director name
-app.get('/movies/director/:directorName', passport.authenticate('jwt', { session: false }), (req, res) => {
-	Movies.findOne({ 'Director.Name': req.params.directorName })
-		.then((movie) => {
-			res.json(movie.Director);
-		})
-		.catch((err) => {
-			console.log(err);
-			res.status(500).send('Error: ' + 'No such director');
 		});
 });
 
