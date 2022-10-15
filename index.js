@@ -32,190 +32,190 @@ mongoose.connect(`${process.env.CONNECTION_URI}`, { useNewUrlParser: true, useUn
 
 // mongoose.connect('mongodb://localhost:27017/test', { useNewUrlParser: true, useUnifiedTopology: true });
 
-// let users = [
-// 	{
-// 		Username: "Kim",
-// 		Password: "223",
-// 		Email: "Kim@gmail.com",
-// 		Birthday: "01/02/1988",
-// 		FavoriteMovies: ["Scarface"]
-// 	},
-// 	{
-// 		Username: "Adin",
-// 		Password: "3344",
-// 		Email: "Adin@gmail.com",
-// 		Birthday: "01/04/1987",
-// 		FavoriteMovies: ["Scarface"]
-// 	},
-// 	{
-// 		Username: "Jamal",
-// 		Password: "4432",
-// 		Email: "Jamal@gmail.com",
-// 		Birthday: "02/05/1988",
-// 		FavoriteMovies: []
-// 	},
-// 	{
-// 		Username: "Kelly",
-// 		Password: "2042",
-// 		Email: "Kelly@gmail.com",
-// 		Birthday: "04/02/1990",
-// 		FavoriteMovies: ["The Untouchables"]
-// 	}
-// ];
+let users = [
+	{
+		Username: "Kim",
+		Password: "223",
+		Email: "Kim@gmail.com",
+		Birthday: "01/02/1988",
+		FavoriteMovies: ["Scarface"]
+	},
+	{
+		Username: "Adin",
+		Password: "3344",
+		Email: "Adin@gmail.com",
+		Birthday: "01/04/1987",
+		FavoriteMovies: ["Scarface"]
+	},
+	{
+		Username: "Jamal",
+		Password: "4432",
+		Email: "Jamal@gmail.com",
+		Birthday: "02/05/1988",
+		FavoriteMovies: []
+	},
+	{
+		Username: "Kelly",
+		Password: "2042",
+		Email: "Kelly@gmail.com",
+		Birthday: "04/02/1990",
+		FavoriteMovies: ["The Untouchables"]
+	}
+];
 
-// let movies = [
-// 	{
-// 		Title: "Scarface",
-// 		Description: "It tells the story of Cuban refugee Tony Montana (Al Pacino) who arrives penniless in Miami during the Mariel boatlift and becomes a powerful and extremely homicidal drug lord.",
-// 		Genre: {
-// 			Name: "Thriller",
-// 			Description: "Thrillers are characterized and defined by the moods they elicit, giving viewers heightened feelings of suspense, excitement, surprise, anticipation and anxiety."
-// 		},
-// 		Director: {
-// 			Name: "Brian De Palma",
-// 			Bio: "Brian De Palma is one of the well-known directors who spear-headed the new movement in Hollywood during the 1970s. He is known for his many films that go from violent pictures, to Hitchcock-like thrillers. Born on September 11, 1940, De Palma was born in Newark, New Jersey in an Italian-American family. Originally entering university as a physics student, De Palma became attracted to films after seeing such classics as Citizen Kane (1941).",
-// 			Birth: 1940
-// 		},
-// 		ImagePath: "https://www.imdb.com/title/tt0086250/mediaviewer/rm512766208/?ref_=tt_ov_i",
-// 		Featured: true
-// 	},
-// 	{
-// 		Title: "Top Gun: Maverick",
-// 		Description: "After more than thirty years of service as one of the top aviators, Pete Maverick Mitchell (Tom Cruise) is where he belongs, pushing the envelope as a courageous test pilot and dodging the advancement in rank that would ground him. When he finds himself training a detachment of Top Gun graduates for a specialized mission the likes of which no living pilot has ever seen, Maverick encounters Lt. Bradley Bradshaw (Miles Teller), call sign: Rooster, the son of Mavericks late friend and Radar Intercept Officer Lt. Nick Bradshaw, aka “Goose”.",
-// 		Genre: {
-// 			Name: "Action",
-// 			Description: "Action film is a film genre in which the protagonist is thrust into a series of events that typically involve violence and physical feats."
-// 		},
-// 		Director: {
-// 			Name: "Joseph Kosinski",
-// 			Bio: "Joseph Kosinski is an American director, producer and screenwriter. Known for employing computer graphics and computer-generated imagery, Kosinski debuted with ‘Tron: Legacy,’ a visual spectacle. The movie established him as a go-to man for making movies that optimally use modern technology. Although he is an engineer by qualification, he plunged into the profession of moviemaking because of his passion fueled by his design and animation skills. He initially started making short films using technology laden with visual effects.",
-// 			Birth: 1974
-// 		},
-// 		ImagePath: "https://www.imdb.com/title/tt1745960/mediaviewer/rm3294367489/?ref_=tt_ov_i",
-// 		Featured: true
-// 	},
-// 	{
-// 		Title: "Rush Hour 2",
-// 		Description: "The story follows Chief Inspector Lee (Chan) and LAPD Detective James Carter (Tucker), who go to Hong Kong on vacation only to be thwarted by a murder case involving two U.S. customs agents after a bombing at the American embassy. Lee suspects that the crime is linked to the Triad crime lord Ricky Tan (Lone).",
-// 		Genre: {
-// 			Name: "Comedy",
-// 			Description: "A comedy film is a category of film which emphasizes humor. These films are designed to make the audience laugh through amusement."
-// 		},
-// 		Director: {
-// 			Name: "Brett Ratner",
-// 			Bio: "Brett Ratner (born March 28, 1969)[1] is an American film director and producer. He directed the Rush Hour film series, The Family Man, Red Dragon, X-Men: The Last Stand, and Tower Heist. He is also a producer of several films, including the Horrible Bosses series, The Revenant and War Dogs.",
-// 			Birth: 1969
-// 		},
-// 		ImagePath: "https://www.imdb.com/title/tt0266915/mediaviewer/rm3051820288/?ref_=tt_ov_i",
-// 		Featured: true
+let movies = [
+	{
+		Title: "Scarface",
+		Description: "It tells the story of Cuban refugee Tony Montana (Al Pacino) who arrives penniless in Miami during the Mariel boatlift and becomes a powerful and extremely homicidal drug lord.",
+		Genre: {
+			Name: "Thriller",
+			Description: "Thrillers are characterized and defined by the moods they elicit, giving viewers heightened feelings of suspense, excitement, surprise, anticipation and anxiety."
+		},
+		Director: {
+			Name: "Brian De Palma",
+			Bio: "Brian De Palma is one of the well-known directors who spear-headed the new movement in Hollywood during the 1970s. He is known for his many films that go from violent pictures, to Hitchcock-like thrillers. Born on September 11, 1940, De Palma was born in Newark, New Jersey in an Italian-American family. Originally entering university as a physics student, De Palma became attracted to films after seeing such classics as Citizen Kane (1941).",
+			Birth: 1940
+		},
+		ImagePath: "https://www.imdb.com/title/tt0086250/mediaviewer/rm512766208/?ref_=tt_ov_i",
+		Featured: true
+	},
+	{
+		Title: "Top Gun: Maverick",
+		Description: "After more than thirty years of service as one of the top aviators, Pete Maverick Mitchell (Tom Cruise) is where he belongs, pushing the envelope as a courageous test pilot and dodging the advancement in rank that would ground him. When he finds himself training a detachment of Top Gun graduates for a specialized mission the likes of which no living pilot has ever seen, Maverick encounters Lt. Bradley Bradshaw (Miles Teller), call sign: Rooster, the son of Mavericks late friend and Radar Intercept Officer Lt. Nick Bradshaw, aka “Goose”.",
+		Genre: {
+			Name: "Action",
+			Description: "Action film is a film genre in which the protagonist is thrust into a series of events that typically involve violence and physical feats."
+		},
+		Director: {
+			Name: "Joseph Kosinski",
+			Bio: "Joseph Kosinski is an American director, producer and screenwriter. Known for employing computer graphics and computer-generated imagery, Kosinski debuted with ‘Tron: Legacy,’ a visual spectacle. The movie established him as a go-to man for making movies that optimally use modern technology. Although he is an engineer by qualification, he plunged into the profession of moviemaking because of his passion fueled by his design and animation skills. He initially started making short films using technology laden with visual effects.",
+			Birth: 1974
+		},
+		ImagePath: "https://www.imdb.com/title/tt1745960/mediaviewer/rm3294367489/?ref_=tt_ov_i",
+		Featured: true
+	},
+	{
+		Title: "Rush Hour 2",
+		Description: "The story follows Chief Inspector Lee (Chan) and LAPD Detective James Carter (Tucker), who go to Hong Kong on vacation only to be thwarted by a murder case involving two U.S. customs agents after a bombing at the American embassy. Lee suspects that the crime is linked to the Triad crime lord Ricky Tan (Lone).",
+		Genre: {
+			Name: "Comedy",
+			Description: "A comedy film is a category of film which emphasizes humor. These films are designed to make the audience laugh through amusement."
+		},
+		Director: {
+			Name: "Brett Ratner",
+			Bio: "Brett Ratner (born March 28, 1969)[1] is an American film director and producer. He directed the Rush Hour film series, The Family Man, Red Dragon, X-Men: The Last Stand, and Tower Heist. He is also a producer of several films, including the Horrible Bosses series, The Revenant and War Dogs.",
+			Birth: 1969
+		},
+		ImagePath: "https://www.imdb.com/title/tt0266915/mediaviewer/rm3051820288/?ref_=tt_ov_i",
+		Featured: true
 
-// 	},
-// 	{
-// 		Title: "Rush Hour 3",
-// 		Description: "After an attempted assassination on Ambassador Han, Lee and Carter head to Paris to protect a French woman with knowledge of the Triads' secret leaders.",
-// 		Genre: {
-// 			Name: "Comedy",
-// 			Description: "A comedy film is a category of film which emphasizes humor. These films are designed to make the audience laugh through amusement.",
-// 		},
-// 		Director: {
-// 			Name: "Brett Ratner",
-// 			Bio: "Brett Ratner (born March 28, 1969)[1] is an American film director and producer. He directed the Rush Hour film series, The Family Man, Red Dragon, X-Men: The Last Stand, and Tower Heist. He is also a producer of several films, including the Horrible Bosses series, The Revenant and War Dogs.",
-// 			Birth: 1969
-// 		},
-// 		ImagePath: "https://www.imdb.com/title/tt0293564/mediaviewer/rm3345322752/?ref_=tt_ov_i",
-// 		Featured: true
-// 	},
-// 	{
-// 		Title: "Bad Boys 2",
-// 		Description: "Two loose-cannon narcotics cops investigate the flow of Ecstasy into Florida from a Cuban drug cartel.",
-// 		Genre: {
-// 			Name: "Thriller",
-// 			Description: "Thrillers are characterized and defined by the moods they elicit, giving viewers heightened feelings of suspense, excitement, surprise, anticipation and anxiety."
-// 		},
-// 		Director: {
-// 			Name: "Michael Bay",
-// 			Bio: "Michael Benjamin Bay (born February 17, 1965)[1] is an American film director and producer. He is best known for making big-budget, high-concept action films characterized by fast cutting, stylistic cinematography and visuals, and extensive use of special effects, including frequent depictions of explosions.",
-// 			Birth: 1965
-// 		},
-// 		ImagePath: "https://www.imdb.com/title/tt0172156/mediaviewer/rm3901951744/?ref_=tt_ov_i",
-// 		Featured: true
-// 	},
-// 	{
-// 		Title: "The Untouchables",
-// 		Description: "After building an empire with bootleg alcohol, legendary crime boss Al Capone (Robert De Niro) rules Chicago with an iron fist. Though Prohibition agent Eliot Ness (Kevin Costner) attempts to take Capone down, even his best efforts fail due to widespread corruption within the Windy City''s police force.",
-// 		Genre: {
-// 			Name: "Thriller",
-// 			Description: "Thrillers are characterized and defined by the moods they elicit, giving viewers heightened feelings of suspense, excitement, surprise, anticipation and anxiety.",
-// 		},
-// 		Director: {
-// 			Name: "Brian De Palma",
-// 			Bio: "is an American film director and screenwriter. With a career spanning over 50 years, he is best known for his work in the suspense, crime and psychological thriller genres.",
-// 			Birth: 1940
-// 		},
-// 		ImagePath: "https://www.imdb.com/title/tt0094226/mediaviewer/rm2697738496/?ref_=tt_ov_i",
-// 		Featured: true
-// 	},
-// 	{
-// 		Title: "Step Brothers",
-// 		Description: "Two aimless middle-aged losers still living at home are forced against their will to become roommates when their parents marry.",
-// 		Genre: {
-// 			Name: "Comedy",
-// 			Description: "Comedy is a genre of film in which the main emphasis is on humor. These films are designed to make the audience laugh through amusement and most often work by exaggerating characteristics for humorous effect."
-// 		},
-// 		Director: {
-// 			Name: "Judd Apatow",
-// 			Bio: "Judd Apatow is an American producer, writer, director, actor and stand-up comedian.",
-// 			Birth: 1967
-// 		},
-// 		ImagePath: "https://www.imdb.com/title/tt0838283/mediaviewer/rm3433645824/?ref_=tt_ov_i",
-// 		Featured: true
-// 	},
-// 	{
-// 		Title: "Ford v Ferrari",
-// 		Description: "American car designer Carroll Shelby and driver Ken Miles battle corporate interference and the laws of physics to build a revolutionary race car for Ford in order to defeat Ferrari at the 24 Hours of Le Mans in 1966.",
-// 		Genre: {
-// 			Name: "Action",
-// 			Description: "Action film is a film genre in which the protagonist is thrust into a series of events that typically involve violence and physical feats."
-// 		},
-// 		Director: {
-// 			Name: "James Mangold",
-// 			Bio: "an American film and television director, screenwriter and producer.",
-// 			Birth: 1963
-// 		},
-// 		ImagePath: "https://www.imdb.com/title/tt1950186/mediaviewer/rm3937571841/?ref_=tt_ov_i",
-// 		Featured: true
-// 	},
-// 	{
-// 		Title: "Tron: Legacy",
-// 		Description: "A strange signal draws Sam to Flynn''s Arcade, and he is pulled into the same cyberworld in which his father, its creator, has been trapped for 20 years.",
-// 		Genre: {
-// 			Name: "Action",
-// 			Description: "Action film is a film genre in which the protagonist is thrust into a series of events that typically involve violence and physical feats."
-// 		},
-// 		Director: {
-// 			Name: "Joseph Kosinksi",
-// 			Bio: "Joseph Kosinski is an American director, producer and screenwriter. Known for employing computer graphics and computer-generated imagery, Kosinski debuted with â€˜Tron: Legacy,â€™ a visual spectacle. The movie established him as a go-to man for making movies that optimally use modern technology.",
-// 			Birth: 1974
-// 		},
-// 		ImagePath: "https://www.imdb.com/title/tt1104001/mediaviewer/rm3240068608/?ref_=tt_ov_i",
-// 		Featured: true
-// 	},
-// 	{
-// 		Title: "Pineapple Express",
-// 		Description: "The plot centers on a process server and his marijuana dealer as they are forced to flee from hitmen and a corrupt police officer after witnessing them commit a murder.",
-// 		Genre: {
-// 			Name: "Comedy",
-// 			Description: "Comedy is a genre of film in which the main emphasis is on humor. These films are designed to make the audience laugh through amusement and most often work by exaggerating characteristics for humorous effect."
-// 		},
-// 		Director: {
-// 			Name: "Judd Apatow",
-// 			Bio: "Judd Apatow is an American producer, writer, director, actor and stand-up comedian.",
-// 			Birth: 1967
-// 		},
-// 		ImagePath: "https://www.imdb.com/title/tt0910936/mediaviewer/rm3325203968/?ref_=tt_ov_i",
-// 		Featured: true
-// 	}
-// ];
+	},
+	{
+		Title: "Rush Hour 3",
+		Description: "After an attempted assassination on Ambassador Han, Lee and Carter head to Paris to protect a French woman with knowledge of the Triads' secret leaders.",
+		Genre: {
+			Name: "Comedy",
+			Description: "A comedy film is a category of film which emphasizes humor. These films are designed to make the audience laugh through amusement.",
+		},
+		Director: {
+			Name: "Brett Ratner",
+			Bio: "Brett Ratner (born March 28, 1969)[1] is an American film director and producer. He directed the Rush Hour film series, The Family Man, Red Dragon, X-Men: The Last Stand, and Tower Heist. He is also a producer of several films, including the Horrible Bosses series, The Revenant and War Dogs.",
+			Birth: 1969
+		},
+		ImagePath: "https://www.imdb.com/title/tt0293564/mediaviewer/rm3345322752/?ref_=tt_ov_i",
+		Featured: true
+	},
+	{
+		Title: "Bad Boys 2",
+		Description: "Two loose-cannon narcotics cops investigate the flow of Ecstasy into Florida from a Cuban drug cartel.",
+		Genre: {
+			Name: "Thriller",
+			Description: "Thrillers are characterized and defined by the moods they elicit, giving viewers heightened feelings of suspense, excitement, surprise, anticipation and anxiety."
+		},
+		Director: {
+			Name: "Michael Bay",
+			Bio: "Michael Benjamin Bay (born February 17, 1965)[1] is an American film director and producer. He is best known for making big-budget, high-concept action films characterized by fast cutting, stylistic cinematography and visuals, and extensive use of special effects, including frequent depictions of explosions.",
+			Birth: 1965
+		},
+		ImagePath: "https://www.imdb.com/title/tt0172156/mediaviewer/rm3901951744/?ref_=tt_ov_i",
+		Featured: true
+	},
+	{
+		Title: "The Untouchables",
+		Description: "After building an empire with bootleg alcohol, legendary crime boss Al Capone (Robert De Niro) rules Chicago with an iron fist. Though Prohibition agent Eliot Ness (Kevin Costner) attempts to take Capone down, even his best efforts fail due to widespread corruption within the Windy City''s police force.",
+		Genre: {
+			Name: "Thriller",
+			Description: "Thrillers are characterized and defined by the moods they elicit, giving viewers heightened feelings of suspense, excitement, surprise, anticipation and anxiety.",
+		},
+		Director: {
+			Name: "Brian De Palma",
+			Bio: "is an American film director and screenwriter. With a career spanning over 50 years, he is best known for his work in the suspense, crime and psychological thriller genres.",
+			Birth: 1940
+		},
+		ImagePath: "https://www.imdb.com/title/tt0094226/mediaviewer/rm2697738496/?ref_=tt_ov_i",
+		Featured: true
+	},
+	{
+		Title: "Step Brothers",
+		Description: "Two aimless middle-aged losers still living at home are forced against their will to become roommates when their parents marry.",
+		Genre: {
+			Name: "Comedy",
+			Description: "Comedy is a genre of film in which the main emphasis is on humor. These films are designed to make the audience laugh through amusement and most often work by exaggerating characteristics for humorous effect."
+		},
+		Director: {
+			Name: "Judd Apatow",
+			Bio: "Judd Apatow is an American producer, writer, director, actor and stand-up comedian.",
+			Birth: 1967
+		},
+		ImagePath: "https://www.imdb.com/title/tt0838283/mediaviewer/rm3433645824/?ref_=tt_ov_i",
+		Featured: true
+	},
+	{
+		Title: "Ford v Ferrari",
+		Description: "American car designer Carroll Shelby and driver Ken Miles battle corporate interference and the laws of physics to build a revolutionary race car for Ford in order to defeat Ferrari at the 24 Hours of Le Mans in 1966.",
+		Genre: {
+			Name: "Action",
+			Description: "Action film is a film genre in which the protagonist is thrust into a series of events that typically involve violence and physical feats."
+		},
+		Director: {
+			Name: "James Mangold",
+			Bio: "an American film and television director, screenwriter and producer.",
+			Birth: 1963
+		},
+		ImagePath: "https://www.imdb.com/title/tt1950186/mediaviewer/rm3937571841/?ref_=tt_ov_i",
+		Featured: true
+	},
+	{
+		Title: "Tron: Legacy",
+		Description: "A strange signal draws Sam to Flynn''s Arcade, and he is pulled into the same cyberworld in which his father, its creator, has been trapped for 20 years.",
+		Genre: {
+			Name: "Action",
+			Description: "Action film is a film genre in which the protagonist is thrust into a series of events that typically involve violence and physical feats."
+		},
+		Director: {
+			Name: "Joseph Kosinksi",
+			Bio: "Joseph Kosinski is an American director, producer and screenwriter. Known for employing computer graphics and computer-generated imagery, Kosinski debuted with â€˜Tron: Legacy,â€™ a visual spectacle. The movie established him as a go-to man for making movies that optimally use modern technology.",
+			Birth: 1974
+		},
+		ImagePath: "https://www.imdb.com/title/tt1104001/mediaviewer/rm3240068608/?ref_=tt_ov_i",
+		Featured: true
+	},
+	{
+		Title: "Pineapple Express",
+		Description: "The plot centers on a process server and his marijuana dealer as they are forced to flee from hitmen and a corrupt police officer after witnessing them commit a murder.",
+		Genre: {
+			Name: "Comedy",
+			Description: "Comedy is a genre of film in which the main emphasis is on humor. These films are designed to make the audience laugh through amusement and most often work by exaggerating characteristics for humorous effect."
+		},
+		Director: {
+			Name: "Judd Apatow",
+			Bio: "Judd Apatow is an American producer, writer, director, actor and stand-up comedian.",
+			Birth: 1967
+		},
+		ImagePath: "https://www.imdb.com/title/tt0910936/mediaviewer/rm3325203968/?ref_=tt_ov_i",
+		Featured: true
+	}
+];
 
 
 
