@@ -1,19 +1,28 @@
 // IMPORTS 
-const express = require('express');
-const app = express();
-const bodyParser = require('body-parser');
-const uuid = require('uuid');
-const morgan = require('morgan');
+const express = require('express'),
+	app = express(),
+	morgan = require('morgan'),
+	bodyParser = require('body-parser'),
+	uuid = require('uuid');
+const { check, validationResult } = require('express-validator');
 const mongoose = require('mongoose');
 const Models = require('./models.js');
 
 const Movies = Models.Movie;
 const Users = Models.User;
+const Genres = Models.Genre;
+const Directors = Models.Director;
 
-const { check, validationResult } = require('express-validator');
+mongoose.connect(`${process.env.CONNECTION_URI}`, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
+	console.log("mongodb is connected")
+});
 
 app.use(bodyParser.json());
+app.use(morgan('common'));
 app.use(bodyParser.urlencoded({ extended: true }));
+
+const cors = require('cors');
+app.use(cors());
 
 let auth = require('./auth')(app);
 
@@ -24,11 +33,6 @@ require('./passport');
 // 	useNewUrlParser: true,
 // 	useUnifiedTopology: true,
 // })
-
-mongoose.connect(`${process.env.CONNECTION_URI}`, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
-	console.log("mongodb is connected")
-});
-
 
 // mongoose.connect('mongodb://localhost:27017/test', { useNewUrlParser: true, useUnifiedTopology: true });
 
