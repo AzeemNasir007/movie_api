@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
 
 let movieSchema = mongoose.Schema({
@@ -10,7 +11,8 @@ let movieSchema = mongoose.Schema({
 	},
 	Director: {
 		Name: String,
-		Bio: String
+		Bio: String,
+		Birth: Date
 	},
 	ImagePath: String,
 	Featured: Boolean
