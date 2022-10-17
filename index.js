@@ -444,7 +444,7 @@ app.use((err, req, res, next) => {
 	res.status(500).send('An error was encountered!');
 });
 
-const port = process.env.PORT || 8083;
+const port = process.env.PORT || 1234;
 app.listen(port, '0.0.0.0', () => {
 	console.log('Listening on Port ' + port);
 });
